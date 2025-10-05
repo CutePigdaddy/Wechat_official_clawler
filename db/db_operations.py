@@ -12,6 +12,25 @@ def create_db(DB,table_name,fields):
       DB:数据库文件名
       table_name:表名
       fields:字段定义字典，如 {"id": "INTEGER PRIMARY KEY","name": "TEXT"}
+      SQLite 五种存储类（storage classes）
+        ● NULL：空值
+        ● INTEGER：有符号整数（1, 42, -7）
+        ● REAL：浮点数（实数）
+        ● TEXT：字符串（UTF-8/UTF-16）
+        ● BLOB：二进制大对象（文件、图片的原始字节）
+      常见类型名字与亲和性规则（SQLite 根据列声明判断）
+        ● 声明包含 INT → INTEGER 亲和
+        ● 包含 CHAR, CLOB, TEXT → TEXT 亲和
+        ● 包含 BLOB 或没有类型声明 → BLOB 亲和
+        ● 包含 REAL, FLOA, DOUB → REAL 亲和
+        ● 其他 → NUMERIC 亲和（尝试转换为整数或浮点或文本）
+      常见约束及作用：
+        ● NOT NULL：列不能为 NULL。
+        ● UNIQUE：列值在表中必须唯一。
+        ● CHECK(expr)：表达式必须为真（例如 CHECK (age >= 0))。
+        ● DEFAULT value：缺省值。
+        ● FOREIGN KEY：引用其他表（外键，默认 SQLite 需要 PRAGMA foreign_keys = ON 才生       效）。
+        ● PRIMARY KEY：唯一标识，常与 NOT NULL 一起出现。
   """
   conn = sqlite3.connect(f"{DB}.db")
   c = conn.cursor()
