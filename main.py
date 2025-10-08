@@ -1,5 +1,4 @@
 from fetch_tools import *
-#https://mp.weixin.qq.com/s/xI3JMqEZqJXDCnxjCDR4Fg 测试用
 if __name__ == "__main__":
   method = input("输入1：获得公众号主页/获取单篇文章内容\n" \
   "输入2：获取公众号下的文章列表\n")
@@ -34,9 +33,5 @@ if __name__ == "__main__":
   with open(path_name,"w",encoding='utf-8') as f:
     f.write(text)
   print("获取成功，已保存到Result.txt")
-#with open("test.txt","w",encoding='utf-8') as f:
-#  f.write(s.get("http://mp.weixin.qq.com/s?__biz=MzAxODAzMjQ1NQ==&amp;mid=2707720384&amp;idx=1&amp;sn=6dfc4e73022f4aa332835b0cf673f71e&amp;chksm=be71d26607dea4a8e39afd1ea24547402afb6fa0168fa00e42e04415b83724e603af90ad083a&amp;scene=27#wechat_redirect",headers=article_headers,verify=False).text)
-
-
 
 
