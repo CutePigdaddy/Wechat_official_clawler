@@ -1,0 +1,8 @@
+requests 
+beautifulsoup4 
+lxml 
+python-dateutil 
+pytz
+selenium 
+webdriver-manager
+playwright
